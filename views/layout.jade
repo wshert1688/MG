@@ -1,7 +1,67 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        block head
+        script(src='/static/js/core.js?v=0199cf29.js')
+    body
+        #wrapper
+            #head
+                .mod-header
+                    img(src='/images/logo.jpg', alt='logo')
+                ul.mod-userbar
+                    li.mod-userbar-select
+                        a.left(href='/')
+                            if(session.name)
+                               span.left #{session.name}
+                               span.mod-ui-arr
+                        if(session.name)
+                            div
+                               a(href='/', target='_blank') 我的主页
+                               a(href='/?center', target='_blank') 帐号设置
+                               a(href='/logout') 退出
+                    if(!session.name)
+                        li
+                            span.left 游客
+                        li
+                            a(href='/login') 登录
+                        li
+                            a(href='/reg') 注册
+                    li
+                        a(href='/') 首页
+            #nav
+                .nav-1
+                    .mod-nav.ucenter.clearfix
+                        ul.nav-list.clearfix
+                            li.list-item.list-item-ucenter
+                                a.page-tab(href='/center?t=1370144459')
+                                    span 首页
+                            li.list-item.list-item-secure
+                                a.page-tab(href='/v2/accountsecurity?_t=1370144459')
+                                    span 开始游戏
+                            li.list-item.list-item-reset
+                                a.page-tab(href='/v2/?accountchangepwd')
+                                    span 角色管理
+                            li.list-item.list-item-associate
+                                a.page-tab(href='/accountbind')
+                                    span 网站商城
+                            li.list-item.list-item-associate
+                                a.page-tab(href='/accountbind')
+                                    span 游戏排行榜
+                            li.list-item.list-item-associate
+                                a.page-tab(href='/accountbind')
+                                    span 推广系统
+                            li.list-item.list-item-associate
+                                a.page-tab(href='/accountbind')
+                                    span 我要充值
+                        a.feedback-link-1(href='http://tousu.baidu.com/passport/add', target='_blank') 问题反馈
+            #content
+                block content
+
+            div(id="foot")
+            script
+                $('.mod-userbar-select').hover(function(){
+                    $('div',this).show()
+                },function(){
+                    $('div',this).hide()
+                })
