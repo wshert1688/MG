@@ -1,0 +1,44 @@
+//
+   Created with JetBrains WebStorm.
+   User: neo
+   Date: 13-6-3
+   Time: 下午4:54
+   To change this template use File | Settings | File Templates.
+
+extends ../layout
+block head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+block content
+    script(type='text/javascript',src='/static/js/zclip.js')
+    .mod-ucenter.clearfix
+        include ../carte.jade
+        .mod-ucenter-cright
+            dl.mod-ucenter-dl(style="height:300px;")
+                dt
+                    | 推广
+                    dd.mod-notice
+                        .mod-notice-tip.f14.hide
+                        ul.mod-notice-list.clearfix
+                            li(style='margin-bottom:5px;')
+                                span.mod-notice-name.left 推广连接:
+                                span.mod-notice-name.left(id='tui1') http://199.192.153.242/reg?tid=#{session.tid}
+                                span.mod-ucenter-btn1(s='msg', f='0',id='btnCopy') 复制送水晶
+                            li(style='margin-bottom:5px;')
+                                span.left(style="color:red;") 说明:每一个推广可以获得【1000】个水晶。
+                            li(style='margin-bottom:5px;')
+                                span.left(style="color:red;") 复制推广代码，发布到QQ群、百度贴吧、论坛等地方、每注册一个用户、您将获取一个推广、个人重复注册无效。
+                            li(style='margin-bottom:5px;')
+                                textarea(style="height:85px;",row=20,cols=105,id='tui2') 我去！《一起凡人修真2》、免费领无限元宝、不需下载注册就玩！复制网址到浏览器打开！http://199.192.153.242/register.php?tid=#{session.tid}
+                            li(style='margin-bottom:5px;')
+                                span.mod-ucenter-btn1(s='msg', f='0',id='btnCopy2') 复制送水晶
+
+    script
+        $('#li5').addClass('list-item-cur');
+        $('#btnCopy').zclip({
+               path:'/static/js/ZeroClipboard.swf',
+               copy:$('#tui1').text()
+        });
+        $('#btnCopy2').zclip({
+               path:'/static/js/ZeroClipboard.swf',
+               copy:$('#tui2').text()
+        });

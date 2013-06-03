@@ -9,7 +9,10 @@ var query = function(sql,param,cb)
     pool.getConnection(function(err, connection) {
         var q = connection.query(sql,param, function(err, rows) {
             console.log(err);
-            cb(err,rows);
+            if(cb!=undefined)
+            {
+                cb(err,rows);
+            }
             connection.end();
         });
         console.log(q.sql);
@@ -20,12 +23,24 @@ exports.getAlluser = function(cb)
     query("select * from fanren2.account;",null,cb);
 }
 
+exports.getuserById = function (obj,cb)
+{
+    query("select * from fanren2.account where name=?",obj,cb);
+}
+
 exports.validatelogin = function(obj,cb)
 {
     query("select * from fanren2.account where name=? and password=?",obj,cb);
 }
-
+exports.getExtend = function(obj,cb)
+{
+    query("select * from fanren2.extsys where tid=? and ip=?",obj,cb);
+}
+exports.addExtend = function(obj,cb)
+{
+    query("INSERT INTO `fanren2`.`extsys` set ?",obj,cb);
+}
 exports.regUser = function(obj,cb)
 {
-    //query("INSERT INTO `fanren2`.`account` ?",obj,cb);
+    query("INSERT INTO `fanren2`.`account` set ?",obj,cb);
 }

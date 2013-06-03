@@ -2,6 +2,7 @@ extends layout
 block head
     link(rel='stylesheet', href='/stylesheets/reset.css')
 block content
+
     .mod-reset
         ul.mod-sub-nav
             li.mod-sub-list1 注册
@@ -9,10 +10,11 @@ block content
             li.mod-sub-list3 进入游戏
         .mod-step-detail
             form#form-auth(action='', method='post')
+                input(name="tid",type="hidden",value='#{req.query["tid"]}')
                 p.step-form-tip 凡人修仙
                 .step-form
                     .pass-input-container.clearfix
-                        input.pass-input(type='text', name='username', value='')
+                        input.pass-input(type='text', name='name', value='')
                         span.pass-input-msg 请输入账号
                     .pass-input-container.clearfix
                         input.pass-input(type='password', name='password', value='')

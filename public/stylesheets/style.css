@@ -653,10 +653,10 @@ textarea.pass-input {
 .page-tab: link,.page-tab: visited,.page-tab: hover,.page-tab: active {
     color: #000
 }
-.index .list-item-index .page-tab,.ucenter .list-item-ucenter .page-tab,.reset .list-item-reset .page-tab,.secure .list-item-secure .page-tab,.associate .list-item-associate .page-tab {
+.index .list-item-index .page-tab,.ucenter .list-item-cur .page-tab,.ucenter .list-item-ucenter .page-tab,.reset .list-item-reset .page-tab,.secure .list-item-secure .page-tab,.associate .list-item-associate .page-tab {
     background: url(/static/passpc-security/img/mod/nav.jpg?v=402af9f1.jpg) no-repeat left top
 }
-.index .list-item-index .page-tab span,.ucenter .list-item-ucenter .page-tab span,.reset .list-item-reset .page-tab span,.secure .list-item-secure .page-tab span,.associate .list-item-associate .page-tab span {
+.index .list-item-index .page-tab span,.ucenter .list-item-cur .page-tab span,.ucenter .list-item-ucenter .page-tab span,.reset .list-item-reset .page-tab span,.secure .list-item-secure .page-tab span,.associate .list-item-associate .page-tab span {
     background: url(/static/passpc-security/img/mod/nav.jpg?v=402af9f1.jpg) no-repeat right -42px
 }
 .mod-nav .feedback-link {

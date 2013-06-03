@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , extend = require('./routes/extend')
   , http = require('http')
   , path = require('path');
 
@@ -53,14 +54,22 @@ app.use(app.router);
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+//权限保护
+function restrict(req, res, next) {
+    if (req.session.tid) {
+        next();
+    } else {
+        req.session.error = 'Access denied!';
+        res.redirect('/login');
+    }
+}
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/users',restrict, user.list);
 app.get('/login', user.login);
 app.post('/login', user.postlogin);
 app.get('/reg', user.reg);
 app.post('/reg', user.postreg);
-
+app.get('/extend',restrict,extend.index);
 
 app.get('/logout', function(req, res){
     // destroy the user's session to log them out
