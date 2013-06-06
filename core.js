@@ -32,3 +32,18 @@ exports.isNotNull=function(obj)
     }
     return true;
 }
+
+exports.getDataValueToInt= function(data,field){
+    if(this.isHasData(data))
+    {
+        return parseInt(data[0][field]);
+    }
+    return 0;
+}
+exports.getDataValue= function(data,field){
+    if(this.isHasData(data))
+    {
+        return data[0][field];
+    }
+    return "";
+}

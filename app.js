@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , extend = require('./routes/extend')
+  , shop = require('./routes/shop')
   , http = require('http')
   , path = require('path');
 
@@ -70,6 +71,8 @@ app.post('/login', user.postlogin);
 app.get('/reg', user.reg);
 app.post('/reg', user.postreg);
 app.get('/extend',restrict,extend.index);
+app.get('/shop',restrict,shop.index);
+app.get('/shop/buy',restrict,shop.buy);
 
 app.get('/logout', function(req, res){
     // destroy the user's session to log them out

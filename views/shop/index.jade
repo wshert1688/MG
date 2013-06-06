@@ -1,0 +1,31 @@
+extends ../layout
+block head
+    link(rel='stylesheet', href='/stylesheets/reset.css')
+    style
+        ul{list-style: none;}
+        .item{width:137px; height:175px; float:left;padding: 5px 10px 0;overflow: hidden; margin: 2px;border: 1px solid #F1F1F1;}
+        .p-img{text-align: center;padding: 5px 0;}
+        .p-name{height: 3em;margin-bottom: 2px;word-break: break-all;word-wrap: break-word; overflow:hidden;}
+        .p-price{overflow: hidden;color: #E4393C;}
+        .buy {color: #E4393C; margin-left: 2px; font:bold;}
+block content
+    .mod-reset(style="margin-top: 5px;")
+        ul
+            each item in data
+                li.item
+                    .p-img
+                        a
+                            img(src='#{item.img}')
+                    .p-name #{item.name}
+                    .p-price
+                        a.buy(itemId='#{item.itemId}') [购买]
+                        input#item(type='text',value='1',style='width:20px;margin: 0 5px;')
+                        |#{item.price}水晶
+
+    script
+        $('#li3').addClass('list-item-cur');
+        $('.buy').click(function(){
+            var count = $(this).next().val();
+            var itemId = $(this).attr('itemId');
+            window.location.href='/shop/buy?itemId='+itemId+'&count='+count;
+        })
