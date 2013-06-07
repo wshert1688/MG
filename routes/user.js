@@ -2,7 +2,7 @@
 /*
  * GET users listing.
  */
-var db = require('../db');
+var db = require('../DB');
 var core = require('../core');
 var async = require('async');
 

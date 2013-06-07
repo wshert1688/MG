@@ -1,4 +1,4 @@
-var db = require('../db');
+var db = require('../DB');
 var core = require('../core');
 
 exports.index = function(req,res)
