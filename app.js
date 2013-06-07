@@ -25,6 +25,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use(express.cookieParser());
 app.use(express.session({secret: 'alessios', store: MemStore({
     reapInterval: 60000 * 10
@@ -73,6 +74,8 @@ app.post('/reg', user.postreg);
 app.get('/extend',restrict,extend.index);
 app.get('/shop',restrict,shop.index);
 app.get('/shop/buy',restrict,shop.buy);
+
+app.get('/game',restrict,routes.game);
 
 app.get('/logout', function(req, res){
     // destroy the user's session to log them out

@@ -1,0 +1,47 @@
+doctype 5
+html
+    head
+        script(src='http://fr2.iiisou.com/js/swfobject.js')
+        script(src='http://fr2.iiisou.com/js/global.js?v=20110620')
+        script(src='http://fr2.iiisou.com/flash_version.js?v=1370614090')
+        script(src='http://fr2.iiisou.com/config/flash_config.js?v=1370614090')
+        style
+            html,body { margin: auto 0px;overflow:auto;height:100%;width:100%;background-color:#000000;}
+            .table1
+            {
+                position:absolute;
+            }
+    body(onload='Brower.onloadComplete()')
+        table#table.table1(width='100%',height='100%',border=0,cellpadding=0,cellspacing=0)
+            tr
+                td(width='100%',height='100%')
+                    #flashcontent
+        script
+            var params = Brower.getParams();
+            var myparams = getParams();
+            function getRandom()
+            {
+                return Math.random();
+            }
+
+            addFlashVersion(myparams);
+            myparams.isDebug = false;
+            myparams.chatLimitLevel = 35;
+            myparams.username = "#{session.name}";
+            myparams.loginIP = "222.186.34.10:9500";
+            myparams.gameIP = "222.186.34.10";
+            myparams.mainPath = "";
+            myparams.isLocalCache = true;
+            myparams.cacheSetUrl = "html/iesetter.html";
+            //myparams.preLoadPageBg = "assets/modules/PreloaderPage/preLoadBg_Xmas.jpg";
+            myparams.updateUrl = "http://tel.266991.com:99/update_notice/";
+            myparams.fairylandLevel = 12;
+            myparams.isUIByLevel = true;
+            myparams.isCloseTween = true;
+            myparams.flashVersion = "20121223101657";
+            myparams.gameUrl =  "MainGame.swf?v=20121223101657";
+            myparams.configUrl = "data/data?v=20121223113219";
+
+            myparams.timerTestType = 0;
+            Brower.loadSwf("Preloader.swf?v="+getRandom(),myparams,"flashcontent");
+            swfobject.createCSS("#flashcontentt", "display:block;text-align:left;");
